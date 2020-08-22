@@ -18,6 +18,7 @@ document.addEventListener("DOMContentLoaded",
 				document.querySelector(".choiceselect").style.display = "block";
 				document.querySelector("#x").addEventListener("click",playerAssignx);
 				document.querySelector("#o").addEventListener("click",playerAssigno);
+				human();
 			}
 
 			function changeFlag1(event){
@@ -26,47 +27,48 @@ document.addEventListener("DOMContentLoaded",
 				document.querySelector("#x").addEventListener("click",playerAssignx);
 				document.querySelector("#o").addEventListener("click",playerAssigno);
 			}
+			function human(){
+				for (var i = 0; i < cells.length; i++){
+						cells[i].innerText = '';
+						cells[i].addEventListener("click",turn);
+						cells[i].style.removeProperty("background-color"); 
+						cells[i].style.cursor = "pointer";
+				}
 
-			for (var i = 0; i < cells.length; i++){
-					cells[i].innerText = '';
-					cells[i].addEventListener("click",turn);
-					cells[i].style.removeProperty("background-color"); 
-					cells[i].style.cursor = "pointer";
-			}
-
-			var currPlayer;
-			function turn(move){
-				var mark = move.target.id;
-				var mark1 = document.getElementById(mark).innerText;
-				if(!mark1){
-					if(count%2 != 0){
-						currPlayer = player1;
-					}else{
-						currPlayer = player2;
-					}
-					document.getElementById(mark).innerText = currPlayer;
-					document.getElementById(mark).style.cursor = "default";
-					info();
-					function info(){
-						if(currPlayer == player1){
-							document.getElementById("rescon").innerText = player2 + " turn";
+				var currPlayer;
+				function turn(move){
+					var mark = move.target.id;
+					var mark1 = document.getElementById(mark).innerText;
+					if(!mark1){
+						if(count%2 != 0){
+							currPlayer = player1;
 						}else{
-							document.getElementById("rescon").innerText = player1 + " turn";
+							currPlayer = player2;
 						}
-					}
-					if(checkWin(currPlayer)){
-						for(var i=0; i < cells.length; i++){
-							cells[i].removeEventListener("click",turn);
-							cells[i].style.cursor = "default";
-					}
-						document.getElementById("rescon").innerText = currPlayer + " WINS!!";
-					}else{
-						count++;
-					if(count == 10){
-							document.getElementById("rescon").innerText = "TIE GAME!!";
+						document.getElementById(mark).innerText = currPlayer;
+						document.getElementById(mark).style.cursor = "default";
+						info();
+						function info(){
+							if(currPlayer == player1){
+								document.getElementById("rescon").innerText = player2 + " turn";
+							}else{
+								document.getElementById("rescon").innerText = player1 + " turn";
+							}
 						}
-					}
-				}	
+						if(checkWin(currPlayer)){
+							for(var i=0; i < cells.length; i++){
+								cells[i].removeEventListener("click",turn);
+								cells[i].style.cursor = "default";
+						}
+							document.getElementById("rescon").innerText = currPlayer + " WINS!!";
+						}else{
+							count++;
+						if(count == 10){
+								document.getElementById("rescon").innerText = "TIE GAME!!";
+							}
+						}
+					}	
+				}
 			}
 
 			var player1;
@@ -115,7 +117,6 @@ document.addEventListener("DOMContentLoaded",
 					}
 					return false;
 				}
-
-				document.getElementById("res").addEventListener("click",startGame);
 		}
+		document.getElementById("res").addEventListener("click",startGame);
 });
