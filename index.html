@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Tic_Tac_Toe</title>
+		<link rel="stylesheet" type="text/css" href="stylesheets/bootstrap.min.css">
+		<link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css">
+		<script src="javascripts/jquery-3.5.1.min.js"></script>
+		<script src="javascripts/bootstrap.min.js"></script>
+		<script src="javascripts/script.js"></script>
+	</head>
+	<body>
+		<header>
+			<nav class="navbar navbar-expand navbar-light">
+				<div class="container">
+					<div class="navbar-brand">
+						<a href="#"><img class="logo" src="images/ticlogo.png"></a>
+						<a href="#"><h1 class="bname">TIC-TAC-TOE</h1></a>
+					</div>
+				</div>
+			</nav>
+		</header>
+		<div class="container-fluid page row">
+			<div class="welcpage col-lg-12">
+				<h2><b>Welcome To The Game!!</b></h2>
+				<br><br>
+				<h4><b>Choose Game Mode</b></h4>
+				<button class="btn-primary" id="hplayer">vs Human Player</button>
+				<button class="btn-primary" id="cplayer">vs Invincible AI</button>
+			</div>
+			<div class="choiceselect col-lg-12">
+				<h2 class="text-center"><b>Player-1 Select</b></h2>
+				<button class="btn-primary" id="x">X</button>
+				<button class="btn-primary" id="o">O</button>
+			</div>
+			<div class="board col-lg-6">
+				<table>
+					<tr>
+						<td class="cell" id="1"></td>
+						<td class="cell" id="2"></td>
+						<td class="cell" id="3"></td>
+					</tr>
+					<tr>
+						<td class="cell" id="4"></td>
+						<td class="cell" id="5"></td>
+						<td class="cell" id="6"></td>
+					</tr>
+					<tr>
+						<td class="cell" id="7"></td>
+						<td class="cell" id="8"></td>
+						<td class="cell" id="9"></td>
+					</tr>
+				</table>
+			</div>
+			<div class="result col-lg-6">
+				<h2 id="rescon"></h2>
+				<button class="btn-primary" id="res">Restart</button>
+			</div>
+		</div>
+	</body>
+</html>
+	
