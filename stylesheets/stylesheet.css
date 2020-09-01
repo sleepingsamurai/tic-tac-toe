@@ -68,6 +68,21 @@ table tr td:last-child{
 .cell{
 	cursor: pointer;
 }
-#rescon{
-	padding: 30px;
-}
+
+/*******small devices********/
+@media (max-width: 500px){
+	.logo{
+		display: none;
+	}
+	.btn-primary{
+		width: 200px;
+	}
+	.row{
+		margin-right: 0px;
+		margin-left: 0px;
+	}
+	td{
+		font-size: 70px;
+		border: 5px solid #000066;
+	}
+} 
